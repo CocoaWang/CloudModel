@@ -1,0 +1,82 @@
+<!-- ***************************************************************************
+* Copyright (c) 2013-2015 IBM Corp.
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*    http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+**************************************************************************** -->
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  	<title>LinuxONE Containers-as-a-Service</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.7.1/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.7.1/dijit/themes/dijit.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.7.1/dojo/dojo.js" djConfig="parseOnLoad: true"></script>
+    <script>
+        dojo.require("dojo.parser");
+
+        dojo.require("dijit.form.Button");
+        dojo.require("dijit.Dialog");
+        dojo.require("dijit.form.TextBox");
+        dojo.require("dijit.Toolbar");
+        dojo.require("dijit.Declaration");
+
+        dojo.require("dojo.cookie");
+    </script>
+</head>
+
+<body class="claro">
+<div id="main">
+    <br/>
+    <header>
+        <img src="images/ibm-linuxone-logo.png" alt="LinuxONE CaaS"/><br/>
+        <!--<div class="text-align: left">Unimaginable Ease of Use</div><br/>-->
+    </header>
+    <div id="welcomeback"><div id="loggedinwelcome"></div>
+    </div>
+    <div id="main_content">
+		<span data-dojo-type="dijit.Declaration" data-dojo-props='widgetClass:"ToolbarSectionStart", defaults:{ label: "Label"}'>
+			<span data-dojo-type="dijit.ToolbarSeparator"></span><i>${label}:</i>
+		</span>
+
+        <div id="toolbar5" data-dojo-type="dijit.Toolbar">
+            <!--<div data-dojo-type="ToolbarSectionStart" data-dojo-props='label:"Actions"'></div>-->
+            <div id="toolbar5.home" data-dojo-type="dijit.form.Button" data-dojo-props='showLabel:true' onClick="window.location='index.html'">Home</div>
+            <div id="toolbar5.flights" data-dojo-type="dijit.form.Button" data-dojo-props='showLabel:true' onClick="window.location='containers.html'">Containers</div>
+            <div id="toolbar5.checkin" data-dojo-type="dijit.form.Button" data-dojo-props='showLabel:true' onClick="window.location='microservice.html'">Microservice</div>
+            <div id="toolbar5.login" data-dojo-type="dijit.form.Button" data-dojo-props='showLabel:true' onClick="window.location='ci.html'">CI</div>
+            <div id="toolbar5.logout" data-dojo-type="dijit.form.Button" data-dojo-props='showLabel:true' onClick="window.location='elastic.html'">Elastic</div>
+            <div id="toolbar5.account" data-dojo-type="dijit.form.Button" data-dojo-props='showLabel:true' onClick="window.location='cluster.html'">Cluster</div>
+        </div>
+
+        <div class="content">
+            <img src="images/INTRO.png" alt="home" align="right"/><br/>
+            <h1 style="margin: 15px 0 0 0;">Welcome to LinuxONE CloudMatrix</h1>
+            <p> Providing you with Containers-as-a-Service </p>
+        </div>
+    </div>
+    <footer>
+        <p>Powered by z13</p>
+    </footer>
+    <!--
+    <div class="base-footer">
+        <a href="config.html" style="left-margin: 15px">Link to LinuxONE Community Cloud</a>
+    </div>
+    -->
+</div>
+
+<p>&nbsp;</p>
+</body>>
+
+</html>
