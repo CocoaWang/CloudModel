@@ -7,7 +7,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Hydrogen &mdash; A free HTML5 Template </title>
+	<title>Your apps &mdash; containers </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
@@ -53,11 +53,11 @@
 		
 	<div id="fh5co-offcanvass">
 		<a href="#" class="fh5co-offcanvass-close js-fh5co-offcanvass-close">Menu <i class="icon-cross"></i> </a>
-		<h1 class="fh5co-logo"><a class="navbar-brand" href="index.html">Hydrogen</a></h1>
+		<h1 class="fh5co-logo"><a class="navbar-brand" href="index.html">Yours</a></h1>
 		<ul>
 			<li><a href="index.html">Home</a></li>
 			<li><a href="about.html">About</a></li>
-			<li class="active"><a href="pricing.html">Pricing</a></li>
+			<li class="active"><a href="order.html">Yours</a></li>
 			<li><a href="contact.html">Contact</a></li>
 		</ul>
 		<h3 class="fh5co-lead">Connect with us</h3>
@@ -74,24 +74,26 @@
 			<div class="row">
 				<div class="col-md-12">
 					<a href="#" class="fh5co-menu-btn js-fh5co-menu-btn">Menu <i class="icon-menu"></i></a>
-					<a class="navbar-brand" href="index.html">Hydrogen</a>		
+					<a class="navbar-brand" href="index.html">Yours</a>
 				</div>
 			</div>
 		</div>
 	</header>
 	<!-- END .header -->
 	
-	
 	<div id="fh5co-main">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
-					<h2>Pricing</h2>
+					<h2>Running</h2>
 					<div class="fh5co-spacer fh5co-spacer-sm"></div>
 					<div class="row">
 						<div class="col-md-4">
 							<div class="fh5co-pricing-table">
-								<h3>Starter</h3>
+								<button onclick="getConInfo()">Grab</button>
+								<div id="zConName">
+
+								</div>
 								<ul class="fh5co-list-check">
 									<li class="fh5co-include">5 users</li>
 									<li class="fh5co-include">10 projects</li>
@@ -101,30 +103,7 @@
 								<a href="#" class="btn btn-block btn-sm btn-outline">Sign up</a>
 							</div>
 						</div>
-						<div class="col-md-4">
-							<div class="fh5co-pricing-table">
-								<h3>Basic</h3>
-								<ul class="fh5co-list-check">
-									<li class="fh5co-include">5 users</li>
-									<li class="fh5co-include">10 projects</li>
-									<li class="fh5co-include">10GB amount of space</li>
-									<li>5 e-mail accounts</li>
-								</ul>
-								<a href="#" class="btn btn-block btn-sm btn-primary">Sign up</a>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="fh5co-pricing-table">
-								<h3>Pro</h3>
-								<ul class="fh5co-list-check">
-									<li class="fh5co-include">5 users</li>
-									<li class="fh5co-include">10 projects</li>
-									<li class="fh5co-include">10GB amount of space</li>
-									<li class="fh5co-include">5 e-mail accounts</li>
-								</ul>
-								<a href="#" class="btn btn-block btn-sm btn-outline">Sign up</a>
-							</div>
-						</div>
+
 					</div>
 					
 				</div>
@@ -167,7 +146,39 @@
 	<!-- Main JS -->
 	<script src="js/main.js"></script>
 
-	
+	<script>
+		function getConInfo() {
+			var return0 = "hehe";
+			//var jsonarray = $.parseJSON(window.globalBucket);
+			/*$.each(eval("(" + jsonarray+ ")"), function (i, n) {
+				alert(n.Price);
+			});*/
+			/*$.each(jsonarray, function(i, n){
+				//console.log(n.Name);
+				alert(n.Name);
+				return0 = n.Name;
+			});*/
+			for(var item in window.globalBucket)
+			{
+				console.log('qq');
+				for(var cname in window.globalBucket[item]) {
+					console.log(cname);
+					//if(cname == 'Name')
+					//	return0 = window.globalBucket[item][cname];
+				}
+			}
+			//$('#zConName').innerText = return0;
+			//document.getElementById("zConName").value="nihao";
+			console.log(return0);
+			//console.log($('#zConName').val());
+			console.log(document.getElementById('zConName').innerHTML);
+			document.getElementById('zConName').innerHTML = '<h3>'+return0+'</h3>';
+			$('#zConName').val(return0);
+		}
+		//getConInfo();
+		//console.log("hello");
+		console.log(window.globalBucket);
+	</script>
 
 	
 	</body>
