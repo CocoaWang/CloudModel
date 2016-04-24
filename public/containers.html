@@ -53,7 +53,7 @@
     <script src="js/respond.min.js"></script>
     <![endif]-->
 
-    <script src="js/socket.io.min.js"></script>
+
 
 </head>
 <body>
@@ -63,8 +63,8 @@
     <h1 class="fh5co-logo"><a class="navbar-brand" href="index.html">Images Square</a></h1>
     <ul>
         <li class="active"><a href="index.html">Home</a></li>
+        <li><a href="order.html">Your Order</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="order.html">Yours</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
     <h3 class="fh5co-lead">Connect with us</h3>
@@ -101,7 +101,7 @@
                     </div>
                     <div class="fh5co-desc">As of July 2015, MongoDB is the fourth most popular type of database management system, and the most popular for document stores
                         <p></p>
-                        <p><a id="mongodb" href="#" class="btn btn-primary btn-lg btn-uppercase btn-effect">Deploy<i class="ti-angle-right"></i></a></p>
+                        <p><a id="z13mongodb" href="#" class="btn btn-primary btn-lg btn-uppercase btn-effect">Deploy<i class="ti-angle-right"></i></a></p>
                     </div>
                 </div>
                 <div class="item">
@@ -204,46 +204,10 @@
 <script src="js/main.js"></script>
 
 <script>
-    //var socketIoConnection = window.location.protocol + "//" + window.location.hostname + ":10002";
-    var socketIoConnection = "http://9.114.15.123:10002";
-    var socket = io.connect(socketIoConnection);
-    window.globalBucket = [];
-    function deployCon()
-    {
-        var text = 'mongodb';
-        socket.emit('deploy', text);
-    }
-    function remoteInfo()
-    {
-        socket.on("containers", function(message) {
-            //console.log(message);
-            window.globalBucket.push(message);
-
-            for(var item in window.globalBucket)
-            {
-                for(var cname in window.globalBucket[item]) {
-                    console.log(cname);
-                    //if(cname == 'Name')
-                    //    return0 = window.globalBucket[item][cname];
-                }
-            }
-
-            var conName = message["Name"];
-            var conImage = message["Image"];
-            var conPort = message["Port"];
-            var buildDate = message["BuildDate"];
-            console.log("mongodb already done");
-            alert("mongodb already done");
-            window.location.href = "order.html";
-        });
-    }
-    remoteInfo();
-    $('#mongodb').click(function(){
-        deployCon();
-        //window.location.href = "order.html";
+    $('#z13mongodb').click(function(){
+        window.location.href = "order.html";
     });
 </script>
-
 
 </body>
 </html>
