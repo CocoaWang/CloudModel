@@ -63,26 +63,26 @@
 		<div id="fh5co-main">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-10 col-md-offset-3">
-						<form action="#">
+					<div class="col-md-9 col-md-offset-3">
+						<form action="/order" method="post">
 							<div class="row">
-								<div class="col-md-3">
-									<p style="font-family:arial;color:#1b1b1b;font-size:25px;margin: 10px 0 0 0;">Image</p>
+								<div class="col-md-4">
+									<p style="font-family:cursive;color:#1b1b1b;font-size:25px;margin: 10px 0px 0px 30px;">image</p>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="MongoDB" readonly="value">
+										<input type="text" class="form-control" name='zCaaSimage' value='MongoDB' placeholder="MongoDB" readonly="value">
 									</div>
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-3">
-									<p style="font-family:arial;color:#1b1b1b;font-size:25px;margin: 10px 0 0 0;">CPU</p>
+								<div class="col-md-4">
+									<p style="font-family:cursive;color:#1b1b1b;font-size:25px;margin: 10px 0px 0px 30px;">CPU</p>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
 										<!--<input type="text" class="form-control" placeholder="First Name">-->
-										<select class="form-control">
+										<select class="form-control" name='zCaaScores'>
 											<option value ="1core">1 core</option>
 											<option value ="2core">2 core</option>
 											<option value="3core">3 core</option>
@@ -91,67 +91,36 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-3">
-									<p style="font-family:arial;color:#1b1b1b;font-size:25px;margin: 10px 0 0 0;">Memory</p>
+								<div class="col-md-4">
+									<p style="font-family:cursive;color:#1b1b1b;font-size:25px;margin: 10px 0px 0px 30px;">memory</p>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
 										<!--<input type="text" class="form-control" placeholder="First Name">-->
-										<select class="form-control">
-											<option value ="1core">512MB</option>
-											<option value ="2core">1GB</option>
-											<option value="3core">2GB</option>
+										<select class="form-control" name="zCaaSmemory">
+											<option value ="512MB">512MB</option>
+											<option value ="1GB">1GB</option>
+											<option value="2GB">2GB</option>
 										</select>
 									</div>
 								</div>
 							</div>
+
 							<div class="row">
 								<br>
+								<br>
 							</div>
-							<div class="col-md-5 col-md-offset-4">
-								<div class="row">
+
+							<div class="row">
+								<div class="col-md-offset-3">
 										<div class="form-group">
-											<input type="submit" class="btn btn-primary" value="Deploy" onclick="deployContainer()">
+											<input type="submit" class="btn btn-primary" value="Deploy Container">
 										</div>
 								</div>
 							</div>
 						</form>
-
-					</div>
-
-				</div>
-
-				<!--
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<h2>MongoDB ON Z</h2>
-						<div class="fh5co-spacer fh5co-spacer-sm"></div>
-						<div class="row">
-							<div class="col-md-4">
-								<div class="fh5co-pricing-table">
-									<a class="btn btn-block btn-sm btn-outline" onclick="deployContainer()">Deploy</a>
-									<br>
-									<ul class="fh5co-list-check">
-										<div id="zContainerName">
-
-										</div>
-										<div id="zContainerImage">
-
-										</div>
-										<div id="zContainerPort">
-
-										</div>
-										<div id="zContainerBuildDate">
-
-										</div>
-									</ul>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
-				-->
-
 			</div>
 		</div>
 
@@ -186,55 +155,5 @@
 		<script src="js/salvattore.min.js"></script>
 		<!-- Main JS -->
 		<script src="js/main.js"></script>
-
-		<script>
-			//var socketIoConnection = window.location.protocol + "//" + window.location.hostname + ":10002";
-			var socketIoConnection = "http://9.114.15.123:10002";
-			var mySocket = io.connect(socketIoConnection);
-			var globalBucket = [];
-			var containerName;
-			var containerImage;
-			var containerPort;
-			var buildDate;
-
-			function deployContainer()
-			{
-				var text = 'mongodb';
-				mySocket.emit('deploy', text);
-			}
-
-			function remoteInfo()
-			{
-				mySocket.on("containers", function(message) {
-					globalBucket.push(message);
-					/*
-					for(var item in globalBucket)
-					{
-						for(var cname in globalBucket[item]) {
-							console.log(cname);
-							//if(cname == 'Name')
-							//    return0 = window.globalBucket[item][cname];
-						}
-					}
-					*/
-
-					containerName = message["Name"];
-					containerImage = message["Image"];
-					containerPort = message["Port"];
-					buildDate = message["BuildDate"];
-
-					document.getElementById('zContainerName').innerHTML = '<li class="fh5co-include"> Name: '+containerName+'</li>';
-					document.getElementById('zContainerImage').innerHTML = '<li class="fh5co-include"> Image: '+containerImage+'</li>';
-					document.getElementById('zContainerPort').innerHTML = '<li class="fh5co-include"> Port: '+containerPort+'</li>';
-					document.getElementById('zContainerBuildDate').innerHTML = '<li class="fh5co-include"> Build Date: '+buildDate+'</li>';
-
-
-				});
-			}
-
-			remoteInfo();
-
-		</script>
-
 	</body>
 </html>
