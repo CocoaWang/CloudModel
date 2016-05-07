@@ -79,6 +79,9 @@
 
 
 									<ul class="fh5co-list-check">
+										<div id="zContainerService">
+
+										</div>
 										<div id="zContainerName">
 
 										</div>
@@ -89,6 +92,9 @@
 
 										</div>
 										<div id="zContainerBuildDate">
+
+										</div>
+										<div id="zContainerAccess">
 
 										</div>
 									</ul>
@@ -141,10 +147,12 @@
 					containerPort = message["PORTS"];
 					buildDate = message["CREATED"];
 
+					document.getElementById('zContainerService').innerHTML = '<li class="fh5co-include"> Service: hellomongodb</li>';
 					document.getElementById('zContainerName').innerHTML = '<li class="fh5co-include"> Name: '+containerName+'</li>';
 					document.getElementById('zContainerImage').innerHTML = '<li class="fh5co-include"> Image: '+containerImage+'</li>';
 					document.getElementById('zContainerPort').innerHTML = '<li class="fh5co-include"> Port: '+containerPort+'</li>';
 					document.getElementById('zContainerBuildDate').innerHTML = '<li class="fh5co-include"> Build Date: '+buildDate+'</li>';
+					document.getElementById('zContainerAccess').innerHTML = '<li class="fh5co-include"> you can access via: 54.223.168.107:8081</li>';
 
 				});
 			}
