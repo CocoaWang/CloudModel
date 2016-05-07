@@ -58,16 +58,7 @@
 				<li><a href="square.html">Square</a></li>
 				<li><a href="order.html">Order</a></li>
 				<li><a href="resource.html">Resource</a></li>
-				<li><a href="contact.html">Contact</a></li>
 			</ul>
-			<h3 class="fh5co-lead">Connect with us</h3>
-			<p class="fh5co-social-icons">
-				<a href="#"><i class="icon-twitter"></i></a>
-				<a href="#"><i class="icon-facebook"></i></a>
-				<a href="#"><i class="icon-instagram"></i></a>
-				<a href="#"><i class="icon-dribbble"></i></a>
-				<a href="#"><i class="icon-youtube"></i></a>
-			</p>
 		</div>
 
 		<header id="fh5co-header" role="banner">
@@ -82,13 +73,11 @@
 		</header>
 		<!-- END .header -->
 	
-		<div id="fh5co-main">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<div class="row">
-							<div class="col-md-4">
-								<div class="fh5co-pricing-table">
+
+
+
+
+
 									<ul class="fh5co-list-check">
 										<div id="zContainerName">
 
@@ -103,38 +92,13 @@
 
 										</div>
 									</ul>
-									<!--
-									<ul class="fh5co-list-check">
-										<li class="fh5co-include">5 users</li>
-										<li class="fh5co-include">10 projects</li>
-										<li>10GB amount of space</li>
-										<li>5 e-mail accounts</li>
-									</ul>
-									-->
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-		   </div>
-		</div>
 
-		<footer id="fh5co-footer">
-			<div class="container">
-				<div class="row row-padded">
-					<div class="col-md-12 text-center">
-						<p class="fh5co-social-icons">
-							<a href="#"><i class="icon-twitter"></i></a>
-							<a href="#"><i class="icon-facebook"></i></a>
-							<a href="#"><i class="icon-instagram"></i></a>
-							<a href="#"><i class="icon-dribbble"></i></a>
-							<a href="#"><i class="icon-youtube"></i></a>
-						</p>
-						<p><small>&copy; LinuxONE Containers-as-a-Service. All Rights Reserved. <br>LinuxONE Community Cloud <a href="https://developer.ibm.com/linuxone/" target="_blank" title="模板之家">LINK</a></small></p>
-					</div>
-				</div>
-			</div>
-		</footer>
+
+
+
+
+
+
 
 		<!-- jQuery -->
 		<script src="js/jquery.min.js"></script>
@@ -171,21 +135,11 @@
 			{
 				mySocket.on("containers", function(message) {
 					globalBucket.push(message);
-					/*
-					for(var item in globalBucket)
-					{
-						for(var cname in globalBucket[item]) {
-							console.log(cname);
-							//if(cname == 'Name')
-							//    return0 = window.globalBucket[item][cname];
-						}
-					}
-					*/
 
-					containerName = message["Name"];
-					containerImage = message["Image"];
-					containerPort = message["Port"];
-					buildDate = message["BuildDate"];
+					containerName = message["NAMES"];
+					containerImage = message["IMAGE"];
+					containerPort = message["PORTS"];
+					buildDate = message["CREATED"];
 
 					document.getElementById('zContainerName').innerHTML = '<li class="fh5co-include"> Name: '+containerName+'</li>';
 					document.getElementById('zContainerImage').innerHTML = '<li class="fh5co-include"> Image: '+containerImage+'</li>';

@@ -1,159 +1,70 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Deploy &mdash; setting </title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<!-- Facebook and Twitter integration -->
-		<meta property="og:title" content=""/>
-		<meta property="og:image" content=""/>
-		<meta property="og:url" content=""/>
-		<meta property="og:site_name" content=""/>
-		<meta property="og:description" content=""/>
-		<meta name="twitter:title" content="" />
-		<meta name="twitter:image" content="" />
-		<meta name="twitter:url" content="" />
-		<meta name="twitter:card" content="" />
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Deploy &mdash; setting </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-		<link rel="shortcut icon" href="favicon.ico">
+	<!-- mine -->
+	<script src="js/socket.io.min.js"></script>
 
-		<!-- Google Webfonts -->
-		<link href='http://fonts.useso.com/css?family=Roboto:400,300,100,500' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+</head>
 
-		<!-- Animate.css -->
-		<link rel="stylesheet" href="css/animate.css">
-		<!-- Icomoon Icon Fonts-->
-		<link rel="stylesheet" href="css/icomoon.css">
-		<!-- Magnific Popup -->
-		<link rel="stylesheet" href="css/magnific-popup.css">
-		<!-- Salvattore -->
-		<link rel="stylesheet" href="css/salvattore.css">
-		<!-- Theme Style -->
-		<link rel="stylesheet" href="css/constyle.css">
-		<!-- Modernizr JS -->
-		<script src="js/modernizr-2.6.2.min.js"></script>
-		<!-- FOR IE9 below -->
-		<!--[if lt IE 9]>
-		<script src="js/respond.min.js"></script>
-		<![endif]-->
+<body>
 
-		<!-- mine -->
-		<script src="js/socket.io.min.js"></script>
+<header>
+	<div align="center">
+		<a href="index.html">Deploy</a>
+	</div>
+</header>
+<!-- END .header -->
 
-	</head>
+<div align="center">
 
-	<body>
-		<header id="fh5co-header" role="banner">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<a class="navbar-brand" href="index.html">Deploy</a>
-					</div>
-				</div>
-			</div>
-		</header>
-		<!-- END .header -->
-		<div id="fh5co-main">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-9 col-md-offset-3">
-						<form action="/order" method="post">
-							<div class="row">
-								<div class="col-md-4">
-									<p style="font-family:cursive;color:#1b1b1b;font-size:25px;margin: 10px 0px 0px 30px;">image</p>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<input type="text" class="form-control" name='zCaaSimage' value='MongoDB' placeholder="MongoDB" readonly="value">
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-4">
-									<p style="font-family:cursive;color:#1b1b1b;font-size:25px;margin: 10px 0px 0px 30px;">CPU</p>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<!--<input type="text" class="form-control" placeholder="First Name">-->
-										<select class="form-control" name='zCaaScores'>
-											<option value ="1core">1 core</option>
-											<option value ="2core">2 core</option>
-											<option value="3core">3 core</option>
-										</select>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-4">
-									<p style="font-family:cursive;color:#1b1b1b;font-size:25px;margin: 10px 0px 0px 30px;">memory</p>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<!--<input type="text" class="form-control" placeholder="First Name">-->
-										<select class="form-control" name="zCaaSmemory">
-											<option value ="512MB">512MB</option>
-											<option value ="1GB">1GB</option>
-											<option value="2GB">2GB</option>
-										</select>
-									</div>
-								</div>
-							</div>
+<form action="/order" method="post">
 
-							<div class="row">
-								<br>
-								<br>
-							</div>
+	<p style="font-family:cursive;color:#1b1b1b;">service name</p>
+	<input type="text" name='zCaaSservice'>
 
-							<div class="row">
-								<div class="col-md-offset-3">
-										<div class="form-group">
-											<input type="submit" class="btn btn-primary" value="Deploy Container">
-										</div>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
+	<p style="font-family:cursive;color:#1b1b1b;">image</p>
+	<input type="text" name='zCaaSimage' value='MongoDB' placeholder="MongoDB" readonly="value">
 
-		<footer id="fh5co-footer">
-			<div class="container">
-				<div class="row row-padded">
-					<div class="col-md-12 text-center">
-						<p class="fh5co-social-icons">
-							<a href="#"><i class="icon-twitter"></i></a>
-							<a href="#"><i class="icon-facebook"></i></a>
-							<a href="#"><i class="icon-instagram"></i></a>
-							<a href="#"><i class="icon-dribbble"></i></a>
-							<a href="#"><i class="icon-youtube"></i></a>
-						</p>
-						<p><small>&copy; LinuxONE Containers-as-a-Service. All Rights Reserved. <br>LinuxONE Community Cloud <a href="https://developer.ibm.com/linuxone/" target="_blank" title="模板之家">LINK</a></small></p>
-					</div>
-				</div>
-			</div>
-		</footer>
 
-		<!-- jQuery -->
-		<script src="js/jquery.min.js"></script>
-		<!-- jQuery Easing -->
-		<script src="js/jquery.easing.1.3.js"></script>
-		<!-- Bootstrap -->
-		<script src="js/bootstrap.min.js"></script>
-		<!-- Waypoints -->
-		<script src="js/jquery.waypoints.min.js"></script>
-		<!-- Magnific Popup -->
-		<script src="js/jquery.magnific-popup.min.js"></script>
-		<!-- Salvattore -->
-		<script src="js/salvattore.min.js"></script>
-		<!-- Main JS -->
-		<script src="js/main.js"></script>
-	</body>
+	<p style="font-family:cursive;color:#1b1b1b;">CPU</p>
+	<!--<input type="text" class="form-control" placeholder="First Name">-->
+	<select name='zCaaScores'>
+		<option value ="1core">1 core</option>
+		<option value ="2core">2 core</option>
+		<option value="3core">3 core</option>
+	</select>
+
+
+	<p style="font-family:cursive;color:#1b1b1b;">memory</p>
+	<!--<input type="text" class="form-control" placeholder="First Name">-->
+	<select name="zCaaSmemory">
+		<option value ="512MB">512MB</option>
+		<option value ="1GB">1GB</option>
+		<option value="2GB">2GB</option>
+	</select>
+
+
+	<p style="font-family:cursive;color:#1b1b1b;">cmd</p>
+	<input type="text" name='zCaaScmd'>
+
+	<p style="font-family:cursive;color:#1b1b1b;">link</p>
+	<input type="text" name='zCaaSlink'>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<input type="submit" value="Deploy Container">
+
+</form>
+
+</div>
+
+</body>
 </html>

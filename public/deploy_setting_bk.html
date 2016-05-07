@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -7,10 +6,10 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Contact &mdash; please feel free to contact us </title>
+		<title>Deploy &mdash; setting </title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	  <!-- Facebook and Twitter integration -->
+		<!-- Facebook and Twitter integration -->
 		<meta property="og:title" content=""/>
 		<meta property="og:image" content=""/>
 		<meta property="og:url" content=""/>
@@ -44,76 +43,85 @@
 		<!--[if lt IE 9]>
 		<script src="js/respond.min.js"></script>
 		<![endif]-->
+
+		<!-- mine -->
+		<script src="js/socket.io.min.js"></script>
+
 	</head>
 
 	<body>
-		<!-- sidebar -->
-		<div id="fh5co-offcanvass">
-			<!--<a href="#" class="fh5co-offcanvass-close js-fh5co-offcanvass-close">Menu <i class="icon-cross"></i> </a>-->
-			<h1 class="fh5co-logo"><a class="navbar-brand" href="index.html">Contact</a></h1>
-			<ul>
-				<li class="active"><a href="index.html">Home</a></li>
-				<li><a href="square.html">Square</a></li>
-				<li><a href="order.html">Order</a></li>
-				<li><a href="resource.html">Resource</a></li>
-				<li><a href="contact.html">Contact</a></li>
-			</ul>
-			<h3 class="fh5co-lead">Connect with us</h3>
-			<p class="fh5co-social-icons">
-				<a href="#"><i class="icon-twitter"></i></a>
-				<a href="#"><i class="icon-facebook"></i></a>
-				<a href="#"><i class="icon-instagram"></i></a>
-				<a href="#"><i class="icon-dribbble"></i></a>
-				<a href="#"><i class="icon-youtube"></i></a>
-			</p>
-		</div>
-
 		<header id="fh5co-header" role="banner">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<a href="#" class="fh5co-menu-btn js-fh5co-menu-btn">Menu <i class="icon-menu"></i></a>
-						<a class="navbar-brand" href="index.html">Contact</a>
+						<a class="navbar-brand" href="index.html">Deploy</a>
 					</div>
 				</div>
 			</div>
 		</header>
 		<!-- END .header -->
-
 		<div id="fh5co-main">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<h2>Contact</h2>
-						<div class="fh5co-spacer fh5co-spacer-sm"></div>
-						<form action="#">
+					<div class="col-md-9 col-md-offset-3">
+						<form action="/order" method="post">
 							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-4">
+									<p style="font-family:cursive;color:#1b1b1b;font-size:25px;margin: 10px 0px 0px 30px;">image</p>
+								</div>
+								<div class="col-md-4">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="First Name">
+										<input type="text" class="form-control" name='zCaaSimage' value='MongoDB' placeholder="MongoDB" readonly="value">
 									</div>
 								</div>
-								<div class="col-md-6">
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<p style="font-family:cursive;color:#1b1b1b;font-size:25px;margin: 10px 0px 0px 30px;">CPU</p>
+								</div>
+								<div class="col-md-4">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Last Name">
+										<!--<input type="text" class="form-control" placeholder="First Name">-->
+										<select class="form-control" name='zCaaScores'>
+											<option value ="1core">1 core</option>
+											<option value ="2core">2 core</option>
+											<option value="3core">3 core</option>
+										</select>
 									</div>
 								</div>
-								<div class="col-md-12">
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<p style="font-family:cursive;color:#1b1b1b;font-size:25px;margin: 10px 0px 0px 30px;">memory</p>
+								</div>
+								<div class="col-md-4">
 									<div class="form-group">
-										<input type="email" class="form-control" placeholder="Email Address">
+										<!--<input type="text" class="form-control" placeholder="First Name">-->
+										<select class="form-control" name="zCaaSmemory">
+											<option value ="512MB">512MB</option>
+											<option value ="1GB">1GB</option>
+											<option value="2GB">2GB</option>
+										</select>
 									</div>
-									<div class="form-group">
-										<textarea name="message" id="message" cols="30" class="form-control" rows="10"></textarea>
-									</div>
-									<div class="form-group">
-										<input type="submit" class="btn btn-primary" value="Send Message">
-									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<br>
+								<br>
+							</div>
+
+							<div class="row">
+								<div class="col-md-offset-3">
+										<div class="form-group">
+											<input type="submit" class="btn btn-primary" value="Deploy Container">
+										</div>
 								</div>
 							</div>
 						</form>
 					</div>
 				</div>
-		   </div>
+			</div>
 		</div>
 
 		<footer id="fh5co-footer">
