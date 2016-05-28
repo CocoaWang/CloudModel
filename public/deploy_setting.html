@@ -1,68 +1,75 @@
 <!DOCTYPE html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Deploy &mdash; setting </title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Deploy &mdash; setting </title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- mine -->
+		<script src="js/socket.io.min.js"></script>
 
-	<!-- mine -->
-	<script src="js/socket.io.min.js"></script>
+		<style type="text/css">
+			#deploysettings a:link,
+			#deploysettings a:visited {
+				color: #243cff;
+				font-size: 24px;
+				text-decoration:none;
+			}
+			#deploysettings a:hover,
+			#deploysettings a:active {
+				color:#f58383;
+				text-decoration:underline;
+			}
+		</style>
+	</head>
 
-</head>
+	<body>
+		<header>
+			<div id="deploysettings" align="center">
+				<a href="index.html">Deploy Settings</a>
+			</div>
+		</header>
+		<!-- END .header -->
 
-<body>
+		<br>
+		<br>
+		<br>
 
-<header>
-	<div align="center">
-		<a href="index.html">Deploy</a>
-	</div>
-</header>
-<!-- END .header -->
+		<div align="center">
+			<form action="/order" method="post">
 
-<div align="center">
+				<p style="font-family:cursive;color:#1b1b1b;">service name</p>
+				<input type="text" name='zCaaSservice'>
 
-<form action="/order" method="post">
+				<p style="font-family:cursive;color:#1b1b1b;">image</p>
+				<input type="text" name='zCaaSimage' value='MongoDB' placeholder="MongoDB" readonly="value">
 
-	<p style="font-family:cursive;color:#1b1b1b;">service name</p>
-	<input type="text" name='zCaaSservice'>
+				<p style="font-family:cursive;color:#1b1b1b;">CPU</p>
+				<select name='zCaaScores'>
+					<option value ="1core">1 core</option>
+					<option value ="2core">2 core</option>
+					<option value="3core">3 core</option>
+				</select>
 
-	<p style="font-family:cursive;color:#1b1b1b;">image</p>
-	<input type="text" name='zCaaSimage' value='MongoDB' placeholder="MongoDB" readonly="value">
+				<p style="font-family:cursive;color:#1b1b1b;">memory</p>
+				<select name="zCaaSmemory">
+					<option value ="512MB">512MB</option>
+					<option value ="1GB">1GB</option>
+					<option value="2GB">2GB</option>
+				</select>
 
+				<p style="font-family:cursive;color:#1b1b1b;">link</p>
+				<input type="text" name='zCaaSlink'>
 
-	<p style="font-family:cursive;color:#1b1b1b;">CPU</p>
-	<!--<input type="text" class="form-control" placeholder="First Name">-->
-	<select name='zCaaScores'>
-		<option value ="1core">1 core</option>
-		<option value ="2core">2 core</option>
-		<option value="3core">3 core</option>
-	</select>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
 
+				<input type="submit" value="Deploy Container">
 
-	<p style="font-family:cursive;color:#1b1b1b;">memory</p>
-	<!--<input type="text" class="form-control" placeholder="First Name">-->
-	<select name="zCaaSmemory">
-		<option value ="512MB">512MB</option>
-		<option value ="1GB">1GB</option>
-		<option value="2GB">2GB</option>
-	</select>
-
-
-
-	<p style="font-family:cursive;color:#1b1b1b;">link</p>
-	<input type="text" name='zCaaSlink'>
-
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<input type="submit" value="Deploy Container">
-
-</form>
-
-</div>
-
-</body>
+			</form>
+		</div>
+	</body>
 </html>
