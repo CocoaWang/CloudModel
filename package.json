@@ -8,5 +8,8 @@
   "dependencies": {
     "express":  "4.11.x",
     "socket.io": "latest"
+  },
+  "devDependencies": {
+    "hbs": "~2.3.1"
   }
 }
