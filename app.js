@@ -44,9 +44,15 @@ app.get('/order.html', function(req, res) {
 });
 
 app.get('/square', function(req, res) {
-	//res.send('LinuxONE CaaS');
 	res.render('square', {entries:imagesEngine.getImagesEntries()});
 });
+
+app.get('/deploy_setting', function(req, res) {
+	console.log(req.query.id);
+	console.log(req.query.name);
+	res.render('deploy_setting', {id:req.query.id, name:req.query.name});
+});
+
 
 function startServer() {
 	if (serverStarted ) return;
