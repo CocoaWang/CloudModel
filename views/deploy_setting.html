@@ -20,13 +20,28 @@
 				color:#f58383;
 				text-decoration:underline;
 			}
+
+			.zCaaSmemorysetting ~ input[name='zCaaSmemory'] {
+				display:none;
+			}
+			.zCaaSmemorysetting:checked ~ input[name='zCaaSmemory'] {
+				display:inline;
+			}
+
+			.zCaaSlinksetting ~ input[name='zCaaSlink'] {
+				display:none;
+			}
+			.zCaaSlinksetting:checked ~ input[name='zCaaSlink'] {
+				display:inline;
+			}
 		</style>
 	</head>
 
 	<body>
 		<header>
+			<br>
 			<div id="deploysettings" align="center">
-				<a href="index.html">Deploy Settings</a>
+				<a href="index.html">容器部署</a>
 			</div>
 		</header>
 		<!-- END .header -->
@@ -38,28 +53,33 @@
 		<div align="center">
 			<form action="/order" method="post">
 
-				<p style="font-family:cursive;color:#1b1b1b;">service name</p>
+				<p style="font-family:cursive;color:#1b1b1b;">服务名称</p>
 				<input type="text" name='zCaaSservice'>
 
-				<p style="font-family:cursive;color:#1b1b1b;">image</p>
+				<p style="font-family:cursive;color:#1b1b1b;">镜像名称</p>
 				<input type="text" name='zCaaSimage' value='{{id}}{{name}}' placeholder="{{id}}{{name}}" readonly="value">
-
+				<!--
 				<p style="font-family:cursive;color:#1b1b1b;">CPU</p>
 				<select name='zCaaScores'>
 					<option value ="1core">1 core</option>
 					<option value ="2core">2 core</option>
 					<option value="3core">3 core</option>
 				</select>
-
-				<p style="font-family:cursive;color:#1b1b1b;">memory</p>
-				<select name="zCaaSmemory">
+				-->
+				<p style="font-family:cursive;color:#1b1b1b;">是否进行内存限制</p>
+				<!--<select name="zCaaSmemory">
 					<option value ="512MB">512MB</option>
 					<option value ="1GB">1GB</option>
 					<option value="2GB">2GB</option>
-				</select>
+				</select>-->
+				<input name="zCaaSmemory" type="radio" value="" />否
+				<input name="zCaaSmemory" class="zCaaSmemorysetting" type="radio" value="" />是
+				<input type="text" name='zCaaSmemory' />
 
-				<p style="font-family:cursive;color:#1b1b1b;">link</p>
-				<input type="text" name='zCaaSlink'>
+				<p style="font-family:cursive;color:#1b1b1b;">是否连接到其它容器</p>
+				<input name="zCaaSlink" type="radio" value="" />否
+				<input name="zCaaSlink" class="zCaaSlinksetting" type="radio" value="" />是
+				<input type="text" name='zCaaSlink' />
 
 				<br>
 				<br>
@@ -67,9 +87,10 @@
 				<br>
 				<br>
 
-				<input type="submit" value="Deploy Container">
+				<input type="submit" value="开始部署">
 
 			</form>
 		</div>
+
 	</body>
 </html>
