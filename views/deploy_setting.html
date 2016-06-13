@@ -21,17 +21,17 @@
 				text-decoration:underline;
 			}
 
-			.zCaaSmemorysetting ~ input[name='zCaaSmemory'] {
+			.zCaaSmemorysetting ~ input[name='memory_setting'] {
 				display:none;
 			}
-			.zCaaSmemorysetting:checked ~ input[name='zCaaSmemory'] {
+			.zCaaSmemorysetting:checked ~ input[name='memory_setting'] {
 				display:inline;
 			}
 
-			.zCaaSlinksetting ~ input[name='zCaaSlink'] {
+			.zCaaSlinksetting ~ input[name='link_to'] {
 				display:none;
 			}
-			.zCaaSlinksetting:checked ~ input[name='zCaaSlink'] {
+			.zCaaSlinksetting:checked ~ input[name='link_to'] {
 				display:inline;
 			}
 		</style>
@@ -54,10 +54,10 @@
 			<form action="/order" method="post">
 
 				<p style="font-family:cursive;color:#1b1b1b;">服务名称</p>
-				<input type="text" name='zCaaSservice'>
+				<input type="text" name='service_name'>
 
 				<p style="font-family:cursive;color:#1b1b1b;">镜像名称</p>
-				<input type="text" name='zCaaSimage' value='{{id}}{{name}}' placeholder="{{id}}{{name}}" readonly="value">
+				<input type="text" name='image_name' value='{{id}}{{name}}' placeholder="{{id}}{{name}}" readonly="value">
 				<!--
 				<p style="font-family:cursive;color:#1b1b1b;">CPU</p>
 				<select name='zCaaScores'>
@@ -66,20 +66,30 @@
 					<option value="3core">3 core</option>
 				</select>
 				-->
-				<p style="font-family:cursive;color:#1b1b1b;">是否进行内存限制</p>
-				<!--<select name="zCaaSmemory">
-					<option value ="512MB">512MB</option>
-					<option value ="1GB">1GB</option>
-					<option value="2GB">2GB</option>
-				</select>-->
-				<input name="zCaaSmemory" type="radio" value="" />否
-				<input name="zCaaSmemory" class="zCaaSmemorysetting" type="radio" value="" />是
-				<input type="text" name='zCaaSmemory' />
+				<p style="font-family:cursive;color:#1b1b1b;">内存限制</p>
+				<select name="memory_setting">
+					<option value ="0">不限制</option>
+					<option value ="256MB">256 MB</option>
+					<option value ="512MB">512 MB</option>
+					<option value ="1GB">1 GB</option>
+					<option value="2GB">2 GB</option>
+					<option value="4GB">4 GB</option>
+				</select>
+				<!--
+				<input name="memory_setting" type="radio" value="" />否
+				<input name="memory_setting" class="zCaaSmemorysetting" type="radio" />是
+				<input type="text" name='memory_setting' />
+				-->
 
-				<p style="font-family:cursive;color:#1b1b1b;">是否连接到其它容器</p>
-				<input name="zCaaSlink" type="radio" value="" />否
-				<input name="zCaaSlink" class="zCaaSlinksetting" type="radio" value="" />是
-				<input type="text" name='zCaaSlink' />
+				<p style="font-family:cursive;color:#1b1b1b;">连接服务</p>
+				<!--
+				<input name="link_to" type="radio" value="" />否
+				<input name="link_to" class="zCaaSlinksetting" type="radio" />是
+				<input type="text" name='link_to' />
+				-->
+				<select name="link_to">
+					<option value =""></option>
+				</select>
 
 				<br>
 				<br>

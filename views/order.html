@@ -125,41 +125,7 @@
 			//var socketIoConnection = window.location.protocol + "//" + window.location.hostname + ":10002";
 			var socketIoConnection = "http://9.114.15.123:10002";
 			var mySocket = io.connect(socketIoConnection);
-			var globalBucket = [];
-			var containerName;
-			var containerImage;
-			var containerPort;
-			var buildDate;
 
-			function deployContainer()
-			{
-				var text = 'mongodb';
-				mySocket.emit('deploy', text);
-			}
-
-			function remoteInfo()
-			{
-				mySocket.on("containers", function(message) {
-					globalBucket.push(message);
-
-					containerName = message["NAMES"];
-					containerImage = message["IMAGE"];
-					containerPort = message["PORTS"];
-					buildDate = message["CREATED"];
-
-					document.getElementById('zContainerService').innerHTML = '<li class="fh5co-include"> Service: hellomongodb</li>';
-					document.getElementById('zContainerName').innerHTML = '<li class="fh5co-include"> Name: '+containerName+'</li>';
-					document.getElementById('zContainerImage').innerHTML = '<li class="fh5co-include"> Image: '+containerImage+'</li>';
-					document.getElementById('zContainerPort').innerHTML = '<li class="fh5co-include"> Port: '+containerPort+'</li>';
-					document.getElementById('zContainerBuildDate').innerHTML = '<li class="fh5co-include"> Build Date: '+buildDate+'</li>';
-					document.getElementById('zContainerAccess').innerHTML = '<li class="fh5co-include"> you can access via: 54.223.168.107:8081</li>';
-
-				});
-			}
-
-			remoteInfo();
-
-			deployContainer();
 
 		</script>
 	</body>
