@@ -30,21 +30,26 @@ module.exports.get_processed_data = function(text, res) {
     var timestamp = new Date().getTime();
     var transactionId = transactionCntr++;
     console.log('sending data to client');
+    var _data = {};
+    _data.timestamp = timestamp;
+    _data.transactionId = transactionId;
+    _data.text = text;
 
     function onResponse(data) {
         // for concurrency reasons, make sure this is the right
         // response.  The server must return the same
         // transactionId that it was sent
-        //if (data.transactionId === transactionId) {
+        if (data.transactionId === transactionId) {
+            console.log(data);
             res.render('order.html');
             socket.off('serverResponse', onResponse);
-        //}
+        }
     }
 
     socket.on('serverResponse', onResponse);
 
     // send data and transactionId
-    socket.emit('deploy', [timestamp ,text, transactionId], function (data) {
+    socket.emit('deploy', _data, function (data) {
         console.log('\tSending query ... waiting for ACK');
         console.log(data);
     });

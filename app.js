@@ -43,13 +43,6 @@ app.engine('html', hbs.__express);
  *****************/
 
 app.post('/order', multipartMiddleware, function(req, res) {
-	//console.log(req.body);
-	/*var text = {};
-	text.service_name = req.query.service_name;
-	text.image_name = req.query.image_name;
-	text.memory_setting = req.query.memory_setting;
-	text.link_to = req.query.link_to;
-	console.log("text: " + text);*/
 	agency.get_processed_data(req.body, res);
 });
 
@@ -62,8 +55,8 @@ app.get('/square', function(req, res) {
 });
 
 app.get('/deploy_setting', function(req, res) {
-	console.log(req.query.id);
-	console.log(req.query.name);
+	//console.log(req.query.id);
+	//console.log(req.query.name);
 	res.render('deploy_setting', {id:req.query.id, name:req.query.name});
 });
 
