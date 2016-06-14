@@ -2,38 +2,6 @@
  * Created by qiushan on 6/13/2016.
  */
 
-/*
-var io = require('socket.io-client');
-var mySocket = io.connect("http://9.114.15.123:10002");
-
-var globalBucket = [];
-var containerName;
-var containerImage;
-var containerPort;
-var buildDate;
-
-function remoteInfo(res)
-{
-    mySocket.on("containers", function(message) {
-        globalBucket.push(message);
-        //console.log(globalBucket);
-
-         //containerName = message["NAMES"];
-         //containerImage = message["IMAGE"];
-         //containerPort = message["PORTS"];
-         //buildDate = message["CREATED"];
-
-         //document.getElementById('zContainerService').innerHTML = '<li class="fh5co-include"> Service: hellomongodb</li>';
-         //document.getElementById('zContainerName').innerHTML = '<li class="fh5co-include"> Name: '+containerName+'</li>';
-         //document.getElementById('zContainerImage').innerHTML = '<li class="fh5co-include"> Image: '+containerImage+'</li>';
-         //document.getElementById('zContainerPort').innerHTML = '<li class="fh5co-include"> Port: '+containerPort+'</li>';
-         //document.getElementById('zContainerBuildDate').innerHTML = '<li class="fh5co-include"> Build Date: '+buildDate+'</li>';
-         //document.getElementById('zContainerAccess').innerHTML = '<li class="fh5co-include"> you can access via: 54.223.168.107:8081</li>';
-
-        res.render('order.html');
-    });
-}*/
-
 var socket = require('socket.io-client')('http://9.114.15.123:10002');
 
 socket.on('connect', function () {
@@ -68,9 +36,6 @@ module.exports.get_processed_data = function(text, res) {
         // response.  The server must return the same
         // transactionId that it was sent
         //if (data.transactionId === transactionId) {
-            //console.log('\tserverResponse' event trigged, data:');
-            //res.send(data);
-            console.log(data);
             res.render('order.html');
             socket.off('serverResponse', onResponse);
         //}
@@ -84,3 +49,36 @@ module.exports.get_processed_data = function(text, res) {
         console.log(data);
     });
 }
+
+
+/*
+ var io = require('socket.io-client');
+ var mySocket = io.connect("http://9.114.15.123:10002");
+
+ var globalBucket = [];
+ var containerName;
+ var containerImage;
+ var containerPort;
+ var buildDate;
+
+ function remoteInfo(res)
+ {
+ mySocket.on("containers", function(message) {
+ globalBucket.push(message);
+ //console.log(globalBucket);
+
+ //containerName = message["NAMES"];
+ //containerImage = message["IMAGE"];
+ //containerPort = message["PORTS"];
+ //buildDate = message["CREATED"];
+
+ //document.getElementById('zContainerService').innerHTML = '<li class="fh5co-include"> Service: hellomongodb</li>';
+ //document.getElementById('zContainerName').innerHTML = '<li class="fh5co-include"> Name: '+containerName+'</li>';
+ //document.getElementById('zContainerImage').innerHTML = '<li class="fh5co-include"> Image: '+containerImage+'</li>';
+ //document.getElementById('zContainerPort').innerHTML = '<li class="fh5co-include"> Port: '+containerPort+'</li>';
+ //document.getElementById('zContainerBuildDate').innerHTML = '<li class="fh5co-include"> Build Date: '+buildDate+'</li>';
+ //document.getElementById('zContainerAccess').innerHTML = '<li class="fh5co-include"> you can access via: 54.223.168.107:8081</li>';
+
+ res.render('order.html');
+ });
+ }*/

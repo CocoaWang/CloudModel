@@ -43,12 +43,14 @@ app.engine('html', hbs.__express);
  *****************/
 
 app.post('/order', multipartMiddleware, function(req, res) {
-	console.log(req.body);
-	var text = 'mongodb';
-	agency.get_processed_data(text, res);
-	//res.render('order.html');
-	//res.render('order.html', {service_name:req.query.service_name, image_name:req.query.image_name,
-	//							memory_setting:req.query.memory_setting, link_to:req.query.link_to});
+	//console.log(req.body);
+	/*var text = {};
+	text.service_name = req.query.service_name;
+	text.image_name = req.query.image_name;
+	text.memory_setting = req.query.memory_setting;
+	text.link_to = req.query.link_to;
+	console.log("text: " + text);*/
+	agency.get_processed_data(req.body, res);
 });
 
 app.get('/order.html', function(req, res) {
