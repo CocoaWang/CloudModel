@@ -34,20 +34,26 @@ app.engine('html', hbs.__express);
 //app.engine('.html', require('ejs').renderFile);
 
 /******************
- * route
- * /order
- * /order.html
- * /square
- * /deploy_setting
+ * route listing
+ *
+ * post /order
+ * get  /order
+ * get  /services_listing
+ * get  /square
+ * get  /deploy_setting
  *
  *****************/
 
 app.post('/order', multipartMiddleware, function(req, res) {
 	agency.get_processed_data(req.body, res);
 });
+app.get('/order', function(req, res) {
+	res.send("Under Developing...")
+});
 
-app.get('/order.html', function(req, res) {
-    res.render('order.html');
+app.get('/services_listing', function(req, res) {
+    //res.render('services_listing');
+    agency.grabUsrServices(res);
 });
 
 app.get('/square', function(req, res) {
@@ -55,8 +61,6 @@ app.get('/square', function(req, res) {
 });
 
 app.get('/deploy_setting', function(req, res) {
-	//console.log(req.query.id);
-	//console.log(req.query.name);
 	res.render('deploy_setting', {id:req.query.id, name:req.query.name});
 });
 

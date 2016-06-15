@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Your order &mdash; we maintain </title>
+		<title>LinuxONE容器云 &mdash; 服务列表</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	  <!-- Facebook and Twitter integration -->
@@ -51,13 +51,13 @@
 	<body>
 		<!-- sidebar -->
 		<div id="fh5co-offcanvass">
-			<!--<a href="#" class="fh5co-offcanvass-close js-fh5co-offcanvass-close">Menu <i class="icon-cross"></i> </a>-->
-			<h1 class="fh5co-logo"><a class="navbar-brand" href="index.html">Order</a></h1>
 			<ul>
-				<li class="active"><a href="index.html">Home</a></li>
-				<li><a href="square.html">Square</a></li>
-				<li><a href="order.html">Order</a></li>
-				<li><a href="resource.html">Resource</a></li>
+				<li class="active"><a href="">返回主页</a></li>
+				<li><a href="">镜像广场</a></li>
+				<li><a href="">我的镜像</a></li>
+				<li><a href="">服务列表</a></li>
+				<li><a href="">私有集群</a></li>
+				<li><a href="">资源监控</a></li>
 			</ul>
 		</div>
 
@@ -65,45 +65,33 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<a href="#" class="fh5co-menu-btn js-fh5co-menu-btn">Menu <i class="icon-menu"></i></a>
-						<a class="navbar-brand" href="index.html">Your Order</a>
+						<a href="#" class="fh5co-menu-btn js-fh5co-menu-btn">导航 <i class="icon-menu"></i></a>
+						<a class="navbar-brand" href="index.html">服务列表</a>
 					</div>
 				</div>
 			</div>
 		</header>
 		<!-- END .header -->
-	
 
-
-
-
-
-									<ul class="fh5co-list-check">
-										<div id="zContainerService">
-
-										</div>
-										<div id="zContainerName">
-
-										</div>
-										<div id="zContainerImage">
-
-										</div>
-										<div id="zContainerPort">
-
-										</div>
-										<div id="zContainerBuildDate">
-
-										</div>
-										<div id="zContainerAccess">
-
-										</div>
-									</ul>
-
-
-
-
-
-
+		{{#each items}}
+			<ul class="fh5co-list-check">
+				<div id="zContainerService">
+					<li class="fh5co-include">{{NAMES}}</li>
+				</div>
+				<div id="zContainerImage">
+					<li class="fh5co-include">{{IMAGE}}</li>
+				</div>
+				<div id="zContainerPort">
+					<li class="fh5co-include">{{PORTS}}</li>
+				</div>
+				<div id="zContainerBuildDate">
+					<li class="fh5co-include">{{CREATED}}</li>
+				</div>
+				<div id="zContainerStatus">
+					<li class="fh5co-include">{{STATUS}}</li>
+				</div>
+			</ul>
+		{{/each}}
 
 
 		<!-- jQuery -->
@@ -121,12 +109,5 @@
 		<!-- Main JS -->
 		<script src="js/main.js"></script>
 
-		<script>
-			//var socketIoConnection = window.location.protocol + "//" + window.location.hostname + ":10002";
-			var socketIoConnection = "http://9.114.15.123:10002";
-			var mySocket = io.connect(socketIoConnection);
-
-
-		</script>
 	</body>
 </html>

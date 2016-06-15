@@ -24,6 +24,7 @@ socket.on('reconnecting', function(){
     console.log("reconnecting");
 });
 
+
 var transactionCntr = 0;
 
 module.exports.get_processed_data = function(text, res) {
@@ -40,8 +41,8 @@ module.exports.get_processed_data = function(text, res) {
         // response.  The server must return the same
         // transactionId that it was sent
         if (data.transactionId === transactionId) {
-            console.log(data);
-            res.render('order.html');
+            //console.log(data.text);
+            res.render('services_listing.html', {items:data.text});
             socket.off('serverResponse', onResponse);
         }
     }
@@ -55,35 +56,21 @@ module.exports.get_processed_data = function(text, res) {
     });
 }
 
+module.exports.grabUsrServices = function(res) {
+    function getServicesListing(data) {
+        res.render('services_listing.html', {items:data.text});
+        socket.off('servicesListing', getServicesListing);
+    }
 
-/*
- var io = require('socket.io-client');
- var mySocket = io.connect("http://9.114.15.123:10002");
+    socket.on('servicesListing', getServicesListing);
 
- var globalBucket = [];
- var containerName;
- var containerImage;
- var containerPort;
- var buildDate;
+// ask for services listing
+    var usrServices = {};
+    usrServices.text = {};
 
- function remoteInfo(res)
- {
- mySocket.on("containers", function(message) {
- globalBucket.push(message);
- //console.log(globalBucket);
+    socket.emit('services', usrServices, function (data) {
+        console.log('\tSending query ... waiting for ACK');
+        console.log(data);
+    });
 
- //containerName = message["NAMES"];
- //containerImage = message["IMAGE"];
- //containerPort = message["PORTS"];
- //buildDate = message["CREATED"];
-
- //document.getElementById('zContainerService').innerHTML = '<li class="fh5co-include"> Service: hellomongodb</li>';
- //document.getElementById('zContainerName').innerHTML = '<li class="fh5co-include"> Name: '+containerName+'</li>';
- //document.getElementById('zContainerImage').innerHTML = '<li class="fh5co-include"> Image: '+containerImage+'</li>';
- //document.getElementById('zContainerPort').innerHTML = '<li class="fh5co-include"> Port: '+containerPort+'</li>';
- //document.getElementById('zContainerBuildDate').innerHTML = '<li class="fh5co-include"> Build Date: '+buildDate+'</li>';
- //document.getElementById('zContainerAccess').innerHTML = '<li class="fh5co-include"> you can access via: 54.223.168.107:8081</li>';
-
- res.render('order.html');
- });
- }*/
+}
