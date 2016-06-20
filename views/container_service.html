@@ -3,15 +3,11 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>欢迎使用 &mdash; LinuxONE容器云 </title>
+		<title>LinuxONE容器云 &mdash; 容器信息</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="LinuxONE" />
-		<meta name="keywords" content="LinuxONE" />
-		<meta name="author" content="IBM" />
 
 	  <!-- Facebook and Twitter integration -->
 		<meta property="og:title" content=""/>
@@ -47,83 +43,54 @@
 		<!--[if lt IE 9]>
 		<script src="js/respond.min.js"></script>
 		<![endif]-->
+
+		<script src="js/socket.io.min.js"></script>
 	</head>
 
 
 	<body>
+		<!-- sidebar -->
+		<div id="fh5co-offcanvass">
+			<ul>
+				<li class="active"><a href="">返回主页</a></li>
+				<li><a href="">镜像广场</a></li>
+				<li><a href="">我的镜像</a></li>
+				<li><a href="">服务列表</a></li>
+				<li><a href="">私有集群</a></li>
+				<li><a href="">资源监控</a></li>
+			</ul>
+		</div>
+
 		<header id="fh5co-header" role="banner">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<img src="images/ibm-linuxone-logo.png" alt="LinuxONE CaaS"/><br/>
+						<a href="#" class="fh5co-menu-btn js-fh5co-menu-btn">导航 <i class="icon-menu"></i></a>
+						<a class="navbar-brand" href="index.html">容器信息</a>
 					</div>
 				</div>
-				<div align="right">
-					<p>用户: qsliubj@cn.ibm.com</p>
-				</div>
 			</div>
-
 		</header>
+		<!-- END .header -->
 
-	<!-- END .header -->
-	
-	<div id="fh5co-main">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 col-md-offset-0">
-					<div class="row">
-						<div class="col-md-4">
-							<div class="fh5co-pricing-table">
-								<a class="btn btn-block btn-sm btn-outline" href="/square">镜像广场</a>
-								<a class="btn btn-block btn-sm btn-outline" onclick="window.location=''">我的镜像</a>
-								<a class="btn btn-block btn-sm btn-outline" href="/services_listing">服务列表</a>
-								<a class="btn btn-block btn-sm btn-outline" onclick="window.location=''">私有集群</a>
-								<a class="btn btn-block btn-sm btn-outline" onclick="window.location=''">资源监控</a>
-							</div>
-						</div>
-						<div class="col-md-6 col-md-offset-2">
-							<h1 style="margin: 38px 0 0 0;font-family:'楷体';">LinuxONE 容器云服务</h1>
-							<p>  </p>
-
-							<div class="col-md-10 col-md-offset-2">
-								<!--<img src="images/IBM.jpg" width="35%" alt="home" align="center"/>-->
-								<img src="images/large_v-trans.png" width="35%" alt="home" align="center"/><br/>
-							</div>
-
-						</div>
-					</div>
+			<ul class="fh5co-list-check">
+				<div id="zContainerService">
+					<li class="fh5co-include">{{container.NAMES}}</li>
 				</div>
-				<!--
-				<div class="col-md-10 col-md-offset-3">
-					<img src="images/INTRO.png" alt="home" align="right"/><br/>
-
+				<div id="zContainerImage">
+					<li class="fh5co-include">{{container.IMAGE}}</li>
 				</div>
-				-->
-        	</div>
-
-       </div>
-	</div>
-
-		<footer id="fh5co-footer">
-			<div class="container">
-				<div class="row row-padded">
-					<div class="col-md-12 text-center">
-						<p class="fh5co-social-icons">
-							<a href="#"><i class="icon-twitter"></i></a>
-							<a href="#"><i class="icon-facebook"></i></a>
-							<a href="#"><i class="icon-instagram"></i></a>
-							<a href="#"><i class="icon-dribbble"></i></a>
-							<a href="#"><i class="icon-youtube"></i></a>
-						</p>
-						<!--
-						<p><small>&copy; LinuxONE Containers-as-a-Service. All Rights Reserved.<br>
-						-->
-						<p font-color="red"><small>LinuxONE Community Cloud <a href="https://developer.ibm.com/linuxone/" target="_blank" > >>> </a></small></p>
-
-					</div>
+				<div id="zContainerPort">
+					<li class="fh5co-include">{{container.PORTS}}</li>
 				</div>
-			</div>
-		</footer>
+				<div id="zContainerBuildDate">
+					<li class="fh5co-include">{{container.CREATED}}</li>
+				</div>
+				<div id="zContainerStatus">
+					<li class="fh5co-include">{{container.STATUS}}</li>
+				</div>
+			</ul>
+
 
 		<!-- jQuery -->
 		<script src="js/jquery.min.js"></script>
@@ -139,6 +106,6 @@
 		<script src="js/salvattore.min.js"></script>
 		<!-- Main JS -->
 		<script src="js/main.js"></script>
-	</body>
 
+	</body>
 </html>

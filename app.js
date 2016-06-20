@@ -48,11 +48,10 @@ app.post('/order', multipartMiddleware, function(req, res) {
 	agency.get_processed_data(req.body, res);
 });
 app.get('/order', function(req, res) {
-	res.send("Under Developing...")
+	agency.grabUsrServices(res);
 });
 
 app.get('/services_listing', function(req, res) {
-    //res.render('services_listing');
     agency.grabUsrServices(res);
 });
 

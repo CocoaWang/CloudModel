@@ -42,7 +42,7 @@ module.exports.get_processed_data = function(text, res) {
         // transactionId that it was sent
         if (data.transactionId === transactionId) {
             //console.log(data.text);
-            res.render('services_listing.html', {items:data.text});
+            res.render('container_service.html', {container:data.text});
             socket.off('serverResponse', onResponse);
         }
     }
