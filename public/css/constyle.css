@@ -7534,7 +7534,7 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   color: #000;
   font-weight: normal;
-  font-family: "Montserrat", arial, sans-serif;
+  font-family: "楷体", arial, sans-serif;
 }
 #fh5co-header > .navbar li a > span .border {
   display: block;
@@ -7598,7 +7598,7 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 40px;
-  font-family: "Garamond";
+  font-family: "楷体";
   color: #000;
 }
 #fh5co-header .navbar-brand:hover {

@@ -74,3 +74,22 @@ module.exports.grabUsrServices = function(res) {
     });
 
 }
+
+module.exports.removeContainer = function(name, res) {
+    function afterRemoveServicesListing(data) {
+        res.render('services_listing.html', {items:data.text});
+        socket.off('removeListing', afterRemoveServicesListing);
+    }
+
+    socket.on('removeListing', afterRemoveServicesListing);
+
+// ask for services listing
+    var usrServices = {};
+    usrServices.text = {};
+
+    socket.emit('remove', usrServices, function (data) {
+        console.log('\tSending query ... waiting for ACK');
+        console.log(data);
+    });
+
+}

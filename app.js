@@ -41,7 +41,7 @@ app.engine('html', hbs.__express);
  * get  /services_listing
  * get  /square
  * get  /deploy_setting
- *
+ * get  /remove
  *****************/
 
 app.post('/order', multipartMiddleware, function(req, res) {
@@ -60,7 +60,13 @@ app.get('/square', function(req, res) {
 });
 
 app.get('/deploy_setting', function(req, res) {
-	res.render('deploy_setting', {id:req.query.id, name:req.query.name});
+	var image_name = imagesEngine.getImagesEntry(req.query.id).image;
+	res.render('deploy_setting', {id:req.query.id, name:req.query.name, image:image_name});
+});
+
+app.get('/remove', function(req, res) {
+	var name = req.query.name;
+	agency.removeContainer(name, res)
 });
 
 
